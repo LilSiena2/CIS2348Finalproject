@@ -40,6 +40,7 @@ for date_item in service_dates_list:
     if date_item[0] == item_id:
         service_date = date_item[1]
         break
+    
 #append, adding on the information by the order format specificed from the inventory format   
 inventory.append([item_id, manufacturer_name, item_type, price, service_date, damaged])
 
@@ -47,6 +48,20 @@ inventory.append([item_id, manufacturer_name, item_type, price, service_date, da
 #need to change the file to be able to write, open file with 'w' writing mode 
 inventory.sort(key=lambda x: x[1]) 
 with open('FullInventory.csv', 'w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerows(inventory)
+
+#take the information and sort with specifications, lambda x: x[1] which is a defined sorting criterion 
+#need to change the file to be able to write, open file with 'w' writing mode 
+inventory.sort(key=lambda x: x[1]) 
+with open('FullInventory.csv', 'w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerows(inventory)
+
+#take the information and sort with specifications, lambda x: x[1] which is a defined sorting criterion 
+#need to change the file to be able to write, open file with 'w' writing mode 
+inventory.sort(key=lambda x: x[1]) 
+with open('DamagedInventory.csv', 'w', newline='') as file:
     writer = csv.writer(file)
     writer.writerows(inventory)
 
